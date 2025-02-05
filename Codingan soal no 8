@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Sosial & Komunitas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 80px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .post {
+            background: #fff;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Buat Postingan</h2>
+        <textarea id="postContent" placeholder="Apa yang Anda pikirkan?"></textarea>
+        <button onclick="buatPost()">Kirim</button>
+        <h2>Postingan</h2>
+        <div id="postList"></div>
+    </div>
+    <script>
+        function buatPost() {
+            let content = document.getElementById("postContent").value;
+            if (content.trim() === "") {
+                alert("Postingan tidak boleh kosong!");
+                return;
+            }
+            let postDiv = document.createElement("div");
+            postDiv.classList.add("post");
+            postDiv.innerText = content;
+            document.getElementById("postList").prepend(postDiv);
+            document.getElementById("postContent").value = "";
+        }
+    </script>
+</body>
+</html>
